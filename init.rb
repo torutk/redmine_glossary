@@ -66,8 +66,25 @@ Redmine::WikiFormatting::Macros.register do
     term = nil
     case sargs.size
     when 1
-      proj = Project.find_by_identifier(params[:project_id])	unless proj
-      term = Term.find_for_macro(sargs[0], proj, true)
+      proj = nil
+      if obj then
+        # obj is the object that is rendered (like a WikiContent or an Issue).
+        # It usually belongs to project.
+        proj = obj.respond_to?(:project) ? obj.project : nil
+      else
+        if params[:controller] == "projects" and params[:action] == "show"
+          # project overview page
+          proj = Project.find_by_identifier(params[:id])
+        elsif params.has_key?(:project_id)
+          # glossary index or other pages
+          proj = Project.find_by_identifier(params[:project_id])
+        else
+          # cannot specify project (like home or mypage
+          proj = nil
+        end
+      end
+
+      term = Term.find_for_macro(sargs[0], proj, true) if proj
     when 2
       proj = Project.find_by_identifier(sargs[1])
       raise sprintf(I18n.t(:error_project_not_found), sargs[1])	unless proj
@@ -75,6 +92,8 @@ Redmine::WikiFormatting::Macros.register do
     else
       raise I18n.t(:error_term_macro_arg)
     end
+
+    return sargs[0] unless proj # render raw term to prevent raising error
     (term) ? term_link(term) : term_link_new(sargs[0], proj)
   end
 end
