@@ -32,7 +32,7 @@ class GlossaryStylesController < ApplicationController
       end
     else
       unless params[:glossary_style_id].blank?
-        @glossary_style = GlossaryStyle.find_by(params[:glossary_style_id])
+        @glossary_style = GlossaryStyle.find_by(:user_id => User.current.id)
       end
 
       if (@glossary_style)
