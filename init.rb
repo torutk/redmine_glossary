@@ -1,6 +1,6 @@
 require 'redmine'
 require 'cgi'
-require 'glossary_asset_tag_helper_patch'
+require 'glossary_application_helper_patch'
 require 'term_link_helper'
 require 'csv'
 FCSV = CSV
