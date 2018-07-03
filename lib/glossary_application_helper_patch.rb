@@ -1,7 +1,7 @@
 module GlossaryApplicationHelper
   def javascript_include_tag(*sources)
     out = super(*sources)
-    if sources.is_a?(Array) and sources[0] == 'jstoolbar/jstoolbar-textile.min'
+    if @project.try!(:module_enabled?, 'glossary') and sources.is_a?(Array) and sources[0] == 'jstoolbar/jstoolbar-textile.min'
       out += javascript_tag <<-javascript_tag
 jsToolBar.prototype.elements.termlink = {
     type: 'button',
