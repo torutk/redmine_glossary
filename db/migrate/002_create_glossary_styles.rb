@@ -1,4 +1,4 @@
-class CreateGlossaryStyles < ActiveRecord::Migration
+class CreateGlossaryStyles < ActiveRecord::Migration[4.2]
   def self.up
     create_table :glossary_styles do |t|
       t.column :show_desc, :boolean, :default => false

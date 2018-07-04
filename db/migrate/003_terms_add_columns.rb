@@ -1,4 +1,4 @@
-class TermsAddColumns < ActiveRecord::Migration
+class TermsAddColumns < ActiveRecord::Migration[4.2]
   def self.up
     add_column :terms, :tech_en, :string, :default => ''
     add_column :terms, :name_cn, :string, :default => ''

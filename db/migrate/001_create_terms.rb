@@ -1,4 +1,4 @@
-class CreateTerms < ActiveRecord::Migration
+class CreateTerms < ActiveRecord::Migration[4.2]
   def self.up
     # CreateTermCategories
     create_table :term_categories, :force => true do |t|
