@@ -4,9 +4,9 @@ class GlossaryController < ApplicationController
   unloadable
 
   layout 'base'  
-  before_filter :find_project, :authorize
-  before_filter :find_term, :only => [:show, :edit, :destroy]
-  before_filter :retrieve_glossary_style, :only => [:index, :show, :show_all, :import_csv_exec]
+  before_action :find_project, :authorize
+  before_action :find_term, :only => [:show, :edit, :destroy]
+  before_action :retrieve_glossary_style, :only => [:index, :show, :show_all, :import_csv_exec]
   
   helper :attachments
   include AttachmentsHelper

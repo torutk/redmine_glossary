@@ -4,8 +4,8 @@ class TermCategoriesController < ApplicationController
   layout 'base'
   menu_item :glossary, :only => [:index, :edit, :destroy]
   
-  before_filter :find_project, :authorize
-  before_filter :retrieve_glossary_style, :only => [:index]
+  before_action :find_project, :authorize
+  before_action :retrieve_glossary_style, :only => [:index]
 
   helper :glossary
   include GlossaryHelper
