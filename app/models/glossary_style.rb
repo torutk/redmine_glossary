@@ -1,5 +1,4 @@
 class GlossaryStyle < ActiveRecord::Base
-  unloadable
 
   GroupByNone = 0
   GroupByCategory = 1

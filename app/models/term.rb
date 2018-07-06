@@ -1,5 +1,4 @@
 class Term < ActiveRecord::Base
-  unloadable
 
   belongs_to :category, :class_name => 'TermCategory', :foreign_key => 'category_id'
   belongs_to :project
