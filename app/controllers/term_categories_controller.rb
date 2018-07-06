@@ -1,5 +1,4 @@
 class TermCategoriesController < ApplicationController
-  unloadable
   
   layout 'base'
   menu_item :glossary, :only => [:index, :edit, :destroy]

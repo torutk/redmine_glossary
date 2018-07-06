@@ -1,7 +1,6 @@
 
 class GlossaryController < ApplicationController
   menu_item :glossary
-  unloadable
 
   layout 'base'  
   before_action :find_project, :authorize

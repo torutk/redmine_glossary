@@ -1,5 +1,4 @@
 class GlossaryStylesController < ApplicationController
-  unloadable
 
   helper :glossary_styles
   include GlossaryStylesHelper
