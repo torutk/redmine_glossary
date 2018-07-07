@@ -31,7 +31,7 @@ end %>
   <% end %>
 
   <% other_formats_links do |f| %>
-    <%= f.link_to 'CSV', :url => params %>
+    <%= f.link_to 'CSV', :url => params.permit!.to_h %>
   <% end %>
 
 <% else %>
