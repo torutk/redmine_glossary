@@ -43,7 +43,7 @@ class GlossaryStylesController < ApplicationController
           }
         end
       else
-        @glossary_style = GlossaryStyle.new(params[:glossary_style])
+        @glossary_style = GlossaryStyle.new(glossary_style_params)
       end
 
       @glossary_style.user_id = User.current.id
@@ -56,5 +56,11 @@ class GlossaryStylesController < ApplicationController
                  :glossary_style_id => @glossary_style_id}
     add_search_params(newparams)
     redirect_to(newparams)
+  end
+
+  private
+  
+  def glossary_style_params
+    params.require(:glossary_style).permit(:groupby)
   end
 end

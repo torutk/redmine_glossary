@@ -10,8 +10,6 @@ class GlossaryStyle < ActiveRecord::Base
   
   belongs_to :project
 
-  attr_accessible :groupby
-  
   def grouping?
     case groupby
     when GroupByCategory

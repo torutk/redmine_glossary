@@ -18,8 +18,6 @@ class Term < ActiveRecord::Base
                   :type => 'terms',
                   :url => Proc.new {|o| {:controller => 'glossary', :action => 'show', :id => o.project, :term_id => o.id} }
 
-  attr_accessible :project_id, :category_id, :author, :name, :name_en, :datatype, :codename, :description,
-                  :rubi, :abbr_whole
   
   def author
     author_id ? User.find_by_id(author_id) : nil

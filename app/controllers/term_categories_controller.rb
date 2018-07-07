@@ -18,7 +18,7 @@ class TermCategoriesController < ApplicationController
   
   def edit
     @category = TermCategory.find_by(project_id: @project.id,  id: params[:id])
-    if request.patch? and @category.update_attributes(params[:category])
+    if request.patch? and @category.update_attributes(term_category_params)
       flash[:notice] = l(:notice_successful_update)
       redirect_to :controller => 'term_categories', :action => 'index', :project_id => @project
     end
@@ -71,4 +71,7 @@ private
     return ary.collect{|proj| "project_id = #{proj.id}" }.join(" OR ")
   end
 
+  def term_category_params
+    params.require(:category).permit(:name, :project_id, :position)
+  end
 end

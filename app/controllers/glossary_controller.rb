@@ -65,9 +65,11 @@ class GlossaryController < ApplicationController
     end
   end
 
+  # This action is invoked by HTTP verb get and post.
+  # 
   def new
     @term_categories = TermCategory.where(:project_id => @project.id).order(:position)
-    @term = Term.new(params[:term])
+    @term = Term.new(term_params)
     @term.name = CGI::unescapeHTML(params[:new_term_name])	if params[:new_term_name]
     @term.project_id = @project.id
 
@@ -96,7 +98,7 @@ class GlossaryController < ApplicationController
     @term_categories = TermCategory.where(:project_id => @project.id).order(:position)
     
     if request.post? || request.put? || request.patch?
-      @term.attributes = params[:term]
+      @term.attributes = term_params
       @term.updater_id = User.current.id
       if @term.save
         attach_files(@term, params[:attachments])
@@ -117,7 +119,7 @@ class GlossaryController < ApplicationController
   end
 
   def add_term_category
-    @category = TermCategory.new(params[:category])
+    @category = TermCategory.new(term_category_params)
     @category.project_id = @project.id
     if request.post? and @category.save
       respond_to do |format|
@@ -381,4 +383,14 @@ class GlossaryController < ApplicationController
     Attachment.attach_files(val, prm)
   end
 
+  def term_params
+    params.require(:term).permit(
+      :project_id, :category_id, :author, :name, :name_en, :datatype, :codename, :description,
+      :rubi, :abbr_whole
+    ) if params[:term]
+  end
+
+  def term_category_params
+    params.require(:category).permit(:name, :project_id, :position) if params[:category]
+  end
 end
