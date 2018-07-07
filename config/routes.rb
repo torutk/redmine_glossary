@@ -1,19 +1,32 @@
 RedmineApp::Application.routes.draw do
-    match 'glossary_styles/:action', :controller => :glossary_styles, :via => [ :get, :post, :put, :patch ]
+  get    '/glossary_styles/search', to: 'glossary_styles#search'
+  post   '/glossary_styles/edit', to: 'glossary_styles#edit'
+  patch  '/glossary_styles/edit', to: 'glossary_styles#edit'
 
-    match 'projects/:project_id/glossary', :to => 'glossary#index', :via => [ :get ]
-    match 'projects/:project_id/glossary/new', :to => 'glossary#new', :via => [ :get ]
-    match 'projects/:project_id/glossary/edit', :to => 'glossary#edit', :via => [ :get, :post, :patch ]
-    match 'projects/:project_id/glossary/:id/edit', :to => 'glossary#edit', :id => /\d+/, :via => [ :get, :post, :patch ]
-    match 'projects/:project_id/glossary/:id/:action', :controller => :glossary, :id => /\d+/, :via => :all
-    match 'projects/:project_id/glossary/:id', :to => 'glossary#show', :id => /\d+/, :via => [ :get ]
-    match 'projects/:project_id/glossary/destroy', :to => 'glossary#destroy', :via => [ :delete ]
-    match 'projects/:project_id/glossary/:action', :controller => :glossary, :via => :all
+  get    '/projects/:project_id/glossary', to: 'glossary#index'
+  get    '/projects/:project_id/glossary/new', to: 'glossary#new'
+  post   '/projects/:project_id/glossary/new', to: 'glossary#new'
+  get    '/projects/:project_id/glossary/edit', to: 'glossary#edit'
+  post   '/projects/:project_id/glossary/edit', to: 'glossary#edit'
+  patch  '/projects/:project_id/glossary/edit', to: 'glossary#edit'
+  get    '/projects/:project_id/glossary/:id/edit', to: 'glossary#edit'
+  post   '/projects/:project_id/glossary/:id/edit', to: 'glossary#edit'
+  patch  '/projects/:project_id/glossary/:id/edit', to: 'glossary#edit'
+  get    '/projects/:project_id/glossary/:id/show', to: 'glossary#show'
+  post   '/projects/:project_id/glossary/:id/destroy', to: 'glossary#destroy'
+  get    '/projects/:project_id/glossary/move_all', to: 'glossary#move_all'
+  get    '/projects/:project_id/glossary/import_csv', to: 'glossary#import_csv'
+  get    '/projects/:project_id/glossary/import_csv_exec', to: 'glossary#import_csv_exec'
+  get    '/projects/:project_id/glossary/add_term_category', to: 'glossary#add_term_category'
+  post   '/projects/:project_id/glossary/add_term_category', to: 'glossary#add_term_category'
+  get    '/projects/:project_id/glossary/index_clear', to: 'glossary#index_clear'
+  post   '/projects/:project_id/glossary/preview', to: 'glossary#preview'
+  patch  '/projects/:project_id/glossary/:id/preview', to: 'glossary#preview'
 
-    match 'projects/:project_id/term_categories', :to => 'term_categories#index', :via => :all
-    match 'projects/:project_id/term_categories/destroy', :to => 'term_categories#destroy', :via => [ :delete ]
-    match 'projects/:project_id/term_categories/change_order', :to => 'term_categories#change_order', :via => [ :post ]
-    match 'projects/:project_id/term_categories/:action', :controller => :term_categories, :via => :all
-    match 'projects/:project_id/term_categories/:id/:action', :controller => :term_categories, :id => /\d+/, :via => :all
+  get    '/projects/:project_id/term_categories', to: 'term_categories#index'
+  post   '/projects/:project_id/term_categories/destroy', to: 'term_categories#destroy'
+  get    '/projects/:project_id/term_categories/change_order', to: 'term_categories#change_order'
+  get    '/projects/:project_id/term_categories/edit', to: 'term_categories#edit'
+  patch  '/projects/:project_id/term_categories/edit', to: 'term_categories#edit'
 end
 
