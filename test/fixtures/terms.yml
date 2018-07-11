@@ -1,11 +1,11 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 one:
   id: 1
-  project_id: 
+  project_id: 1
   category_id: 
-  author_id: 
+  author_id: 3
   updater_id: 
-  name: 
+  name: term one
   name_en: 
   codename: 
   description: 
@@ -13,11 +13,11 @@ one:
   updated_on: 2010-12-13 21:25:16
 two:
   id: 2
-  project_id: 
+  project_id: 2
   category_id: 
-  author_id: 
+  author_id: 2
   updater_id: 
-  name: 
+  name: term two
   name_en: 
   codename: 
   description: 

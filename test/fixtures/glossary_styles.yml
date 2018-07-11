@@ -2,7 +2,7 @@
 one:
   id: 1
   show_desc: 
-  gropby: 
+  groupby: 
   project_scope: 1
   sort_item_0: MyString
   sort_item_1: MyString
@@ -11,7 +11,7 @@ one:
 two:
   id: 2
   show_desc: 
-  gropby: 
+  groupby: 
   project_scope: 1
   sort_item_0: MyString
   sort_item_1: MyString
