@@ -13,7 +13,7 @@ class TermCategory < ActiveRecord::Base
   # If a category is specified, terms are reassigned to this category
   def destroy(reassign_to = nil)
     if reassign_to && reassign_to.is_a?(TermCategory) && reassign_to.project == self.project
-      Term.update_all("category_id = #{reassign_to.id}", "category_id = #{id}")
+      Term.where(category_id: id).update_all(category_id: reassign_to.id)
     end
     destroy_without_reassign
   end  
