@@ -14,7 +14,7 @@ one:
 two:
   id: 2
   project_id: 2
-  category_id: 
+  category_id: 2
   author_id: 2
   updater_id: 
   name: term two

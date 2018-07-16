@@ -2,10 +2,10 @@
 one:
   id: 1
   project_id: 1
-  name: MyString
+  name: one
   position: 1
 two:
   id: 2
   project_id: 1
-  name: MyString
+  name: two
   position: 1
