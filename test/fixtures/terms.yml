@@ -4,22 +4,22 @@ one:
   project_id: 1
   category_id: 
   author_id: 3
-  updater_id: 
+  updater_id: 3
   name: term one
   name_en: 
   codename: 
   description: 
-  created_on: 
+  created_on: 2010-12-13 21:25:16
   updated_on: 2010-12-13 21:25:16
 two:
   id: 2
   project_id: 2
   category_id: 2
   author_id: 2
-  updater_id: 
+  updater_id: 2
   name: term two
   name_en: 
   codename: 
   description: 
-  created_on: 
-  updated_on: 2010-12-13 21:25:16
+  created_on: 2010-12-13 21:25:16
+  updated_on: 2010-12-14 21:25:16
