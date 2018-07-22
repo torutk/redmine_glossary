@@ -6,8 +6,9 @@ one:
   author_id: 3
   updater_id: 3
   name: term one
-  name_en: 
-  codename: 
+  name_en: ''
+  codename: ''
+  datatype: ''
   description: 
   created_on: 2010-12-13 21:25:16
   updated_on: 2010-12-13 21:25:16
@@ -18,8 +19,9 @@ two:
   author_id: 2
   updater_id: 2
   name: term two
-  name_en: 
-  codename: 
+  name_en: ''
+  codename: ''
+  datatype: ''
   description: 
   created_on: 2010-12-13 21:25:16
   updated_on: 2010-12-14 21:25:16
