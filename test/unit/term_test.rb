@@ -55,8 +55,8 @@ class TermTest < ActiveSupport::TestCase
     assert_empty @term.value('category')
     assert_equal '2010-12-13 21:25:16'.to_datetime, @term.value('datetime')
     assert_equal 'term one', @term.value('name')
-    assert_nil @term.value('name_en')
-    assert_nil @term.value('codename')
+    assert_empty @term.value('name_en')
+    assert_empty @term.value('codename')
     assert_nil @term.value('description')
   end
 
