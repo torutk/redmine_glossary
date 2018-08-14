@@ -4,7 +4,7 @@ class GlossaryCategoriesController < ApplicationController
   before_action :find_project_by_project_id, :authorize
   
   def index
-    @categories = GlossaryCategory.where(project_id: @project.id)
+    @categories = GlossaryCategory.where(project_id: @project.id).sorted
   end
 
   def show
@@ -28,7 +28,15 @@ class GlossaryCategoriesController < ApplicationController
   def update
     @category.attributes = glossary_category_params
     if @category.save
-      redirect_to [@project, @category], notice: l(:notice_successful_update)
+      respond_to do |format|
+        format.html {
+          redirect_to [@project, @category],
+            notice: l(:notice_successful_update)
+        }
+        format.js {
+          head 200
+        }
+      end
     end
   rescue ActiveRecord::StaleObjectError
     flash.now[:error] = l(:notice_locking_conflict)
@@ -50,7 +58,7 @@ class GlossaryCategoriesController < ApplicationController
 
   def glossary_category_params
     params.require(:glossary_category).permit(
-      :name
+      :name, :position
     )
   end
 end

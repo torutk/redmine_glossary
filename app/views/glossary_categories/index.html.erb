@@ -8,11 +8,12 @@
 
 <%= render partial: 'glossary_terms/sidebar' %>
 
-<table class="list">
+<table class="list table-sortable">
   <thead>
     <tr>
       <th>#</th>
       <th><%=l :field_name %></th>
+      <th/>
     </tr>
   </thead>
   <tbody>
@@ -20,7 +21,14 @@
       <tr>
 	<td class="id"><%= category.id %></td>
 	<td class="name"><%= link_to category.name, [@project, category] %></td>
+	<td class="buttons">
+	  <%= reorder_handle(category, url: project_glossary_category_path(@project, category)) %>
+	</td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<%= javascript_tag do %>
+  $(function() { $("table.table-sortable tbody").positionedItems(); });
+<% end %>
