@@ -23,6 +23,15 @@
 	<td class="name"><%= link_to category.name, [@project, category] %></td>
 	<td class="buttons">
 	  <%= reorder_handle(category, url: project_glossary_category_path(@project, category)) %>
+	  <%= link_to_if_authorized l(:button_edit), {
+	    controller: :glossary_categories, action: :edit, id: category,
+	    project_id: @project
+	  }, class: 'icon icon-edit' %>
+	  <%= link_to_if_authorized l(:button_delete), {
+	    controller: :glossary_categories, action: :destroy, id: category,
+	    project_id: @project
+	  }, method: :delete, data: {confirm: l(:text_are_you_sure)},
+	  class: 'icon icon-del' %>
 	</td>
       </tr>
     <% end %>
