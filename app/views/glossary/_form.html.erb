@@ -7,14 +7,13 @@
   <% end %>
 <% end %>
 
-<div class="splitcontentleft">
 <p><%= f.select :category_id, (@term_categories.collect {|c| [c.name, c.id]}), :include_blank => true %>
 <% if Rails::VERSION::MAJOR >= 3 %>
   <%= link_to(l(:label_term_category_new),
                  {:controller => 'glossary', :action => 'add_term_category', :project_id => @project.id },
-                 :category => 'category[name]', 
-                 :class => 'icon icon-add', 
-                 :tabindex => 199, 
+                 :category => 'category[name]',
+                 :class => 'icon icon-add',
+                 :tabindex => 199,
                  :method => 'get',
                  :remote => true) if authorize_for('glossary', 'add_term_category') %></p>
 <% else %>
@@ -23,16 +22,12 @@
                      {:controller => 'glossary', :action => 'add_term_category', :project_id => @project },
                      :class => 'icon icon-add', :tabindex => 199) if authorize_for('glossary', 'add_term_category') %></p>
 <% end %>
-</div>
+<div class="box tabular">
 <p><%= f.text_area :description, :label=>t('label.description'),
                    :cols => 60,
                    :rows => (@term.description.blank? ? 10 : [[10, @term.description.length / 50].max, 100].min),
                    :accesskey => accesskey(:edit),
                    :class => 'wiki-edit' %></p>
-             
-
-
-<p />
+</div>
 <p><label><%=l(:label_attachment_plural)%></label><%= render :partial => 'attachments/form' %></p>
-
 <%= wikitoolbar_for 'term_description' %>
