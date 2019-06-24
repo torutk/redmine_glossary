@@ -4,7 +4,6 @@
 url: project_glossary_terms_path, html: {multipart: true, id: 'term-form'} do |f| %>
   <%= render partial: 'glossary_terms/form', locals: {form: f} %>
   <%= f.submit l(:button_create) %>
-  <%= preview_link preview_project_glossary_terms_path(@project), 'term-form' %>
 <% end %>
 
 <div id="preview" class="wiki"></div>
