@@ -1,6 +1,7 @@
 class GlossaryTerm < ActiveRecord::Base
   belongs_to :category, class_name: 'GlossaryCategory', foreign_key: 'category_id'
   belongs_to :project
+  belongs_to :author, class_name: 'User', foreign_key: 'author_id'
 
   # class method from Redmine::Acts::Attachable::ClassMethods
   acts_as_attachable view_permission: :view_glossary, edit_permission: :manage_glossary, delete_permission: :manage_glossary
