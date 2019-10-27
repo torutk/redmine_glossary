@@ -29,8 +29,8 @@ ja:
     わ を ん
 
 
-  permission_view_glossary: 用語集の閲覧
-  permission_manage_glossary: 用語集の管理
+  permission_view_glossary_terms: 用語集の閲覧
+  permission_manage_glossary_terms: 用語集の管理
 
   field_name_en: 英語名
   field_abbr_whole: 略語の展開名称

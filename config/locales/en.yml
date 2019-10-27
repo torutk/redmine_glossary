@@ -27,8 +27,8 @@ en:
   index_rubi: |
     
     
-  permission_view_glossary: View glossary
-  permission_manage_glossary: Manage glossary
+  permission_view_glossary_terms: View glossary
+  permission_manage_glossary_terms: Manage glossary
 
   field_name_en: English
   field_abbr_whole: Whole word for Abbreviation

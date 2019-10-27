@@ -1,5 +1,7 @@
 Rails.configuration.to_prepare do
   require_dependency "glossary_macros"
+  Redmine::Activity.register :glossary_terms
+  Redmine::Search.available_search_types << 'glossary_terms'
 end
 
 Redmine::Plugin.register :redmine_glossary do
@@ -12,11 +14,11 @@ Redmine::Plugin.register :redmine_glossary do
 
 
   project_module :glossary do
-    permission :view_glossary, {
+    permission :view_glossary_terms, {
                  glossary_terms: [:index, :show],
                  glossary_categories: [:index, :show]
                }
-    permission :manage_glossary, {
+    permission :manage_glossary_terms, {
                  glossary_terms: [:new, :create, :edit, :update, :destroy],
                  glossary_categories: [:new, :create, :edit, :update, :destroy],
                },
@@ -30,6 +32,3 @@ Redmine::Plugin.register :redmine_glossary do
        param: :project_id
 
 end
-
-
-Redmine::Activity.register :glossary_terms
