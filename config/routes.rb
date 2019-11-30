@@ -16,7 +16,7 @@ RedmineApp::Application.routes.draw do
   post   '/projects/:project_id/glossary/:id/destroy', to: 'glossary#destroy'
   get    '/projects/:project_id/glossary/move_all', to: 'glossary#move_all'
   get    '/projects/:project_id/glossary/import_csv', to: 'glossary#import_csv'
-  get    '/projects/:project_id/glossary/import_csv_exec', to: 'glossary#import_csv_exec'
+  post    '/projects/:project_id/glossary/import_csv_exec', to: 'glossary#import_csv_exec'
   get    '/projects/:project_id/glossary/add_term_category', to: 'glossary#add_term_category'
   post   '/projects/:project_id/glossary/add_term_category', to: 'glossary#add_term_category'
   get    '/projects/:project_id/glossary/index_clear', to: 'glossary#index_clear'
