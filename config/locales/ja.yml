@@ -2,6 +2,7 @@ ja:
   label_glossary_terms: "用語集"
   label_glossary_term: "用語"	
   label_glossary_term_new: "用語の作成"
+  label_glossary_term_import_csv: "CSVからインポート"
   label_glossary_categories: "用語のカテゴリ一覧"
   label_glossary_category: "用語のカテゴリ"
   label_glossary_category_new: "カテゴリの作成"
@@ -10,7 +11,8 @@ ja:
   project_module_glossary: 用語集
 
   label_view: 表示
-  label_glossary_index: 索引 
+  label_import: インポート
+  label_glossary_index: 索引
   label_not_categorized: 未分類
   label_grouping: グループ化
   label_categorized: カテゴリで分類

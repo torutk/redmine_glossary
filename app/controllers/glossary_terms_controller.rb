@@ -64,6 +64,11 @@ class GlossaryTermsController < ApplicationController
     render_404
   end
 
+  def import
+    GlossaryTerm.import(params[:file], @project)
+    redirect_to project_glossary_terms_path(@project)
+  end
+
   private
 
   def glossary_term_params

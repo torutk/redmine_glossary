@@ -1,3 +1,5 @@
+require 'csv'
+
 class GlossaryTerm < ActiveRecord::Base
   belongs_to :category, class_name: 'GlossaryCategory', foreign_key: 'category_id'
   belongs_to :project
@@ -36,5 +38,22 @@ class GlossaryTerm < ActiveRecord::Base
   scope :search_by_rubi, -> (keyword) {
     where 'rubi like ?', "#{sanitize_sql_like(keyword)}%"
   }
+
+  def self.csv_attributes
+    ["name", "name_en", "datatype", "codename", "description", "rubi", "abbr_whole"]
+  end
+
+  def self.import(file, project)
+    CSV.foreach(file.path, headers: true, encoding: "CP932:UTF-8" ) do |row|
+      term = new
+      term.attributes = row.to_hash.slice(*csv_attributes)
+      term.project = project
+      unless row["category"].blank?
+        term.category = GlossaryCategory.find_by(name: row["category"]) ||
+            GlossaryCategory.create(name: row["category"], project: project)
+      end
+      term.save!
+    end
+  end
 
 end

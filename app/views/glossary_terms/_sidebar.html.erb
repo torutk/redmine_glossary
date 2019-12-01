@@ -17,6 +17,18 @@
      { controller: :glossary_terms, action: :new, project_id: @project },
      class: 'icon icon-add' %></p>
 
+  <fieldset class="collapsible collapsed">
+    <legend onclick="toggleFieldset(this);" class="icon icon-collapsed">
+      <%=l :label_glossary_term_import_csv %>
+    </legend>
+    <div style="display: none;">
+      <%= form_with url: import_project_glossary_terms_path, method: :post, local: true do |form| %>
+        <%= form.file_field :file %>
+        <%= form.submit l(:label_import) %>
+      <% end %>
+    </div>
+  </fieldset>
+
   <h3><%=l :label_glossary_category %></h3>
   <p><%= link_to_if_authorized l(:label_glossary_category_new),
      { controller: :glossary_categories, action: :new, project_id: @project},

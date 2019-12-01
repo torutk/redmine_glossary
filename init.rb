@@ -19,7 +19,7 @@ Redmine::Plugin.register :redmine_glossary do
                  glossary_categories: [:index, :show]
                }
     permission :manage_glossary_terms, {
-                 glossary_terms: [:new, :create, :edit, :update, :destroy],
+                 glossary_terms: [:new, :create, :edit, :update, :destroy, :import],
                  glossary_categories: [:new, :create, :edit, :update, :destroy],
                },
                require: :member

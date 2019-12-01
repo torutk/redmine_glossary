@@ -3,6 +3,7 @@ en:
   label_glossary_terms: "Glossary terms"
   label_glossary_term: "Glossary term"
   label_glossary_term_new: "New glossary term"
+  label_glossary_term_import_csv: "Import from CSV"
   label_glossary_categories: "Glossary categories"
   label_glossary_category: "Glossary category"
   label_glossary_category_new: "New glossary category"
@@ -11,6 +12,7 @@ en:
   project_module_glossary: Glossary
 
   label_view: View
+  label_import: Import
   label_glossary_index: index
   label_not_categorized: Not categorized
   label_grouping: Grouping

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       end
       collection do
         post 'preview'
+        post 'import'
       end
     end
     resources :glossary_categories
