@@ -23,4 +23,6 @@
   <%= render 'index_terms', terms: @glossary_terms %>
 <% end %>
 
-
+<% other_formats_links do |f| %>
+  <%= f.link_to_with_query_parameters 'CSV' %>
+<% end %>
