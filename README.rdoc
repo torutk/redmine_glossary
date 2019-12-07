@@ -31,8 +31,7 @@ cf. http://www.redmine.org/wiki/1/Plugins
 
 == Installation and Setup (redmine 4.x)
 
-1. Put the downloaded package in the /plugins directory.
- Or clone from this repository.
+1. Put the downloaded package in the /plugins directory. Or clone from this repository.
 2. run the following command to upgrade your database. 
     rails redmine:plugins:migrate RAILS_ENV=production 
 3. Restart Redmine WEB server.
