@@ -2,11 +2,13 @@
 
 This is the Redmine(Project manage system) plug-in which adds the feature of the glossary.
 
-Ported to 3.0.x and 3.1.x on master branch.
+Ported to Redmine 3.0.x and 3.1.x on master branch.
 It doesn't keep compatibility with 2.x!
 
-Ported to comming 4.0.x on support-redmine4 branch.
+Ported to Redmine 4.0.x on support-redmine4 branch.
 It doesn't keep compativility with 3.x and below.
+
+Reconstructing(Reimplementing) for Redmine 4.0 on reconstruct branch is in progress.
 
 == Use Cases
 
@@ -29,12 +31,14 @@ cf. http://www.redmine.org/wiki/1/Plugins
 
 == Installation and Setup (redmine 4.x)
 
-T.B.D.
-
 1. Put the downloaded package in the /plugins directory.
  Or clone from this repository.
- 
-
+2. run the following command to upgrade your database. 
+    rails redmine:plugins:migrate RAILS_ENV=production 
+3. Restart Redmine WEB server.
+4. Set permissions of glossary plugin in "Administration" -> "Roles and permissions"
+5. Open the setting page of projects you need, check the "Glossary" module
+6. If you need, select items to make hidden in plugin setting page.
 
 == Usage
 
