@@ -1,0 +1,63 @@
+<% content_for :header_tags do %>
+  <%= stylesheet_link_tag 'glossary', plugin: 'redmine_glossary' %>
+<% end %>
+
+<div class="contextual">
+  <%= link_to_if_authorized l(:button_edit),
+  { controller: :glossary_terms, action: :edit, project_id: @project },
+  class: 'icon icon-edit' %>
+  <%= link_to_if_authorized l(:button_delete),
+  { controller: :glossary_terms, action: :destroy,
+    id: @term, project_id: @project },
+    method: :delete, data: {confirm: l(:text_are_you_sure)}, class: 'icon icon-del' %>
+</div>
+
+<%= render partial: 'sidebar' %>
+
+<h2><%=l :label_glossary_term %> #<%= @term.id %></h2>
+
+<h3><%= @term.name %></h3>
+
+<table class="term">
+  <tr>
+    <th><%=l :field_name_en %>:</th>
+    <td><%= @term.name_en %></td>
+  </tr>
+  <tr>
+    <th><%=l :field_rubi %>:</th>
+    <td><%= @term.rubi %></td>
+  </tr>
+  <tr>
+    <th><%=l :field_abbr_whole %>:</th>
+    <td><%= @term.abbr_whole %></td>
+  </tr>
+  <tr>
+    <th><%=l :field_datatype %>:</th>
+    <td><%= @term.datatype %></td>
+  </tr>
+  <tr>
+    <th><%=l :field_codename %>:</th>
+    <td><%= @term.codename %></td>
+  </tr>
+  <tr>
+    <th><%=l :field_category %>:</th>
+    <td><%= @term.category.try!(:name) %>
+  </tr>
+  <tr>
+    <th><%=l :field_description %>:</th>
+    <td><div class="wiki"><%= textilizable @term, :description %></div></td>
+  </tr>
+  <tr>
+    <th><%=l :field_created_on %>:</th>
+    <td><%= format_time(@term.created_at) %></td>
+  </tr>
+  <tr>
+    <th><%=l :field_updated_on %>:</th>
+    <td><%= format_time(@term.updated_at) %></td>
+  </tr>
+</table>
+
+<%= render partial: 'attachments/links',
+locals: {attachments: @term.attachments,
+	 options: {deletable: User.current.allowed_to?(:manage_glossary_terms, @project)}
+}%>

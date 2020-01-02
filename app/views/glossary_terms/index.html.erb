@@ -1,0 +1,28 @@
+<h2><%=l :label_glossary_terms %></h2>
+
+<div class="contextual">
+  <%= link_to_if_authorized l(:label_glossary_term_new),
+  { controller: :glossary_terms, action: :new, project_id: @project },
+  class: 'icon icon-add' %>
+</div>
+
+<%= render partial: 'sidebar' %>
+
+<% if @grouping == '1' %>
+  <% categorized_terms = @glossary_terms.reject { |t| t.category_id.nil? } %>
+  <% uncategorized_terms = @glossary_terms.where(category_id: nil) %>
+
+  <% categorized_terms.group_by(&:category).each do |category, terms| %>
+    <h3><%= category.name %></h3>
+    <%= render partial: 'index_terms', locals: {terms: terms} %>
+  <% end %>
+
+  <h3><%=l :label_not_categorized %></h3>
+  <%= render 'index_terms',  terms: uncategorized_terms %>
+<% else %>
+  <%= render 'index_terms', terms: @glossary_terms %>
+<% end %>
+
+<% other_formats_links do |f| %>
+  <%= f.link_to_with_query_parameters 'CSV' %>
+<% end %>
