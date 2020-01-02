@@ -20,7 +20,7 @@ This is a remake version of [the original glossary plugin](https://ja.osdn.net/p
 The branches are as follows:
 
 - __master__ for the recent Redmine version
-- __development__ under developping for the next release
+- __develop__ under developping for the next release
 - __support/2.x__ original glossary plugin ported for Redmine 2.x
 - __support/3.x__ original glossary plugin ported for Redmine 3.x
 - __support/4.0or1/based_original__ original glossary plugin ported for Redmine 4.0 or 4.1
