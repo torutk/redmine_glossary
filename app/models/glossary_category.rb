@@ -1,4 +1,4 @@
-class GlossaryCategory < ActiveRecord::Base
+class GlossaryCategory < ApplicationRecord
   has_many :terms, class_name: 'GlossaryTerm', foreign_key: 'category_id'
   belongs_to :project
 
